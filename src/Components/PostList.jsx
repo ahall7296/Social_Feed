@@ -1,6 +1,7 @@
 import React from "react";
+import Post from "./Post";
 
-const PostList = (props) => {
+const PostList = ({pagePosts}) => {
 
 
     return(  
@@ -13,13 +14,10 @@ const PostList = (props) => {
             </tr>
         </thead>
         <tbody>
-        {props.parentEntries.map((e, i)=>{
+        {pagePosts.map((e, i)=>{
+            console.log(e.timeStamp)
             return (
-                <tr key={`entry-row-${i}`}>
-                    <td className='nameTitle'>{e.name}</td>
-                    <td className='nameTitle'>{e.body}</td>
-                    <td><LikeDislikeButton/></td>
-                </tr>
+                <Post key={i} userName={e.userName} postBody={e.postBody} timeStamp={e.timeStamp} index={i}/>
             );
         })}
         </tbody>

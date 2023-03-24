@@ -1,18 +1,23 @@
 import { useState } from "react";
 
 const CreatePost = (props) => {
-    const [username] = useState ("");
-    const [postBody] = useState("")
+    const [userName,setUserName] = useState ("");
+    const [postBody, setPostBody] = useState("")
 
     function handleSubmit(event){
         event.preventDefault()
-        
+        if(userName === "" || postBody === "" ){
+            alert("Please enter a username and the body of a post")
+            return
+          }
         let newPost = {
-        username: username,
+        userName: userName,
         postBody: postBody,
-        timestamp: Date()
+        timeStamp: new Date().toISOString(),
         }
-        props.createNewPost(newPost);
+        props.addNewPost(newPost);
+        setUserName("")
+        setPostBody("")
     }
     return (
         <div>

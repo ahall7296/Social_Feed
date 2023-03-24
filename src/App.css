@@ -1,0 +1,11 @@
+.border-box {
+    border: 1px;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: black;
+    background-color: white;
+    margin: 1em;
+    padding: 1em;
+    width: 60%;
+    justify-content: center;
+}
